@@ -1,0 +1,93 @@
+:root{
+  --bg:#0f1724;
+  --panel:#0b1220;
+  --accent:#4fd1c5;
+  --tile-border: #0b0f14;
+  --font: "Helvetica Neue", Arial, sans-serif;
+}
+*{box-sizing:border-box}
+html,body{
+  height:100%;
+  margin:0;
+  background: linear-gradient(180deg,#071026 0%, var(--bg) 100%);
+  color:#e6eef6;
+  font-family:var(--font);
+  -webkit-font-smoothing:antialiased;
+}
+.container{
+  max-width:960px;
+  margin:24px auto;
+  padding:18px;
+  background: rgba(255,255,255,0.02);
+  border-radius:12px;
+  box-shadow: 0 6px 24px rgba(2,6,23,0.6);
+}
+header{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:12px;
+  margin-bottom:12px;
+}
+header h1{margin:0;font-size:20px}
+.info{display:flex;align-items:center;gap:12px}
+.info div{font-size:14px}
+
+main{
+  display:flex;
+  gap:18px;
+  align-items:flex-start;
+  flex-wrap:wrap;
+}
+canvas#playfield{
+  width:240px; /* CSS大小 */
+  height:480px;
+  background: linear-gradient(180deg,#071026 0%, #071827 100%);
+  border-radius:8px;
+  border:2px solid rgba(255,255,255,0.04);
+  image-rendering: pixelated;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.6);
+}
+
+/* 控制面板 */
+.controls{
+  flex:1;
+  min-width:220px;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+.controls button{
+  background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.01));
+  color:var(--accent);
+  border:1px solid rgba(255,255,255,0.04);
+  padding:10px 14px;
+  border-radius:10px;
+  cursor:pointer;
+  font-weight:600;
+  font-size:14px;
+}
+.controls button:active{transform:translateY(1px)}
+.touch-keys{
+  display:flex;
+  gap:8px;
+  align-items:center;
+  justify-content:space-between;
+  margin-top:6px;
+}
+.touch-keys button{
+  width:54px;
+  height:46px;
+  font-size:18px;
+}
+
+/* hint & footer */
+.hint{font-size:12px;color:rgba(230,238,246,0.6)}
+footer{margin-top:14px;text-align:center;font-size:12px;color:rgba(230,238,246,0.6)}
+
+/* 小屏幕自适应 */
+@media (max-width:700px){
+  .container{margin:10px; padding:12px}
+  main{flex-direction:column; align-items:center}
+  .controls{width:100%}
+}
